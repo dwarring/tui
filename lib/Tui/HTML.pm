@@ -11,7 +11,7 @@ class Tui::HTML {
 
     submethod TWEAK {
         # rough cut. just loads simple selections on elements
-        my $default-css = %?RESOURCES<xhtml.css>;
+        my $default-css = %?RESOURCES<xhtml.css>.absolute;
         my $actions = $module.actions.new;
         my $p = $module.grammar.parsefile($default-css, :$actions);
         my %ast = $p.ast;

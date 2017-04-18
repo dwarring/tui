@@ -1,13 +1,14 @@
 {
     "perl"        : "6.*",
     "name"        : "Tui",
-    "version"     : "0.0.0",
+    "version"     : "0.0.1",
     "auth"        : "github:dwarring",
     "description" : "Experimental CSS driven rendering engine",
     "depends"     : [ "PDF::Content", "PDF::Lite", "PDF::Style::Font", "CSS::Module", "CSS::Declarations", "HTML::Parser::XML", "PDF::Style", "PDF::Canvas" ],
     "source-url"  : "git://github.com/dwarring/tui.git",
     "provides"    : {
+        "Tui"        : "lib/Tui.pm",
         "Tui::HTML"  : "lib/Tui/HTML.pm"
     },
-    "resources" : [ "etc/xhtml.css" ]
+    "resources" : [ "xhtml.css" ]
 }
