@@ -1,0 +1,2 @@
+role Tui::Layout {
+}

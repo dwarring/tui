@@ -1,12 +1,12 @@
 use v6;
 
-class Tui::HTML {
+class Tui::HTML::TagSet {
     use CSS::Module;
     use CSS::Module::CSS3;
     use CSS::Declarations:ver(v0.1.2..*);
 
     has CSS::Module $module = CSS::Module::CSS3.module;
-    has Array %!declarations;
+    has Array %.declarations;
     has CSS::Declarations %!css;
 
     submethod TWEAK {

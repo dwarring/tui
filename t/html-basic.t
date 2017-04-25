@@ -5,9 +5,9 @@ use PDF::Lite;
 use XML;
 use HTML::Parser::XML;
 use CSS::Declarations;
-use Tui::HTML;
+use Tui::HTML::TagSet;
 
-my Tui::HTML $tag-style .= new;
+my Tui::HTML::TagSet $tag-style .= new;
 
 plan 12;
 

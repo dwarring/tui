@@ -3,12 +3,14 @@
     "name"        : "Tui",
     "version"     : "0.0.1",
     "auth"        : "github:dwarring",
-    "description" : "Experimental CSS driven rendering engine",
-    "depends"     : [ "PDF::Content", "PDF::Lite", "PDF::Style::Font", "CSS::Module", "CSS::Declarations", "HTML::Parser::XML", "PDF::Style", "PDF::Canvas" ],
+    "description" : "Experimental CSS driven rendering",
+    "depends"     : [ "PDF::Content", "PDF::Lite", "PDF::Style::Font", "CSS::Module", "CSS::Declarations", "HTML::Parser::XML", "PDF::Style", "HTML::Canvas" ],
     "source-url"  : "git://github.com/dwarring/tui.git",
     "provides"    : {
-        "Tui"        : "lib/Tui.pm",
-        "Tui::HTML"  : "lib/Tui/HTML.pm"
+        "Tui"               : "lib/Tui.pm",
+        "Tui::Content"      : "lib/Tui/Content.pm",
+        "Tui::Node"         : "lib/Tui/Node.pm",
+        "Tui::HTML::TagSet" : "lib/Tui/HTML/TagSet.pm"
     },
     "resources" : [ "xhtml.css" ]
 }

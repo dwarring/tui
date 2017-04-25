@@ -5,19 +5,21 @@ CSS Render (under construction)
 
 Tui is a lightweight multipass system for laying out and publishing documents via an input rendering tree.
 
+[Position] -> [Paginate] -> [Pre] -> [Render] -> [Post] -> [Save]
+
 The rendering tree may typically originate from parsing HTML, Markdown or POD [1] and can easily be
 manipulated and edited between each pass. The rendering tree retains backlinks to the original
 source to aid in data extraction and cross referencing.
 
-Tui aims to work well in various data-flow environments by allowing typical dataflows, such as combining and editing documents; plus saving and restoring of rendering trees.
+Tui aims to allow typical dataflows, such as combining and editing documents; plus saving and restoring of rendering trees.
 
 The final action in a Tui workflow is publication to PDF [2]. Multiply referenced resources are imported just once. This includes images, fonts or imported PDF files.
 
 Some quick Tui use cases include :
-- publishing a maniscript, including generation of contents, index and page numbers.
+- publishing a document, including generation of contents, index and page numbers.
 - simple mail merges such as printing several different business cards, with a mix of common stock
 
-As much as anything, the initial goal of this project is about eating our own dogfood. Tui will be built on Perl 6 PDF and CSS tool-chains and will be used to
+As much as anything, the initial goal of this project is dogfooding. Tui will be built on Perl 6 PDF and CSS tool-chains and will be used to
 document them [3]
 
 ## Layout/Publication Passes
@@ -29,11 +31,11 @@ page width (but not yet the page height).
 2. pagination - the document is broken into pages. CSS rules related to pagination are applied. Elements are
 absolutely positioned (by setting css properties position:absolute; and 'top', 'left', etc).
 
-3. optional user prepublication pass
+3. optional user pre-publication pass
 
 4. rendering - production of a multipage PDF::Lite document.
 
-5. optional user pos-publication processing of the PDF
+5. optional user post-publication processing of the PDF
 
 6. document save
 
