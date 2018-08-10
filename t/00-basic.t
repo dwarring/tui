@@ -1,17 +1,17 @@
 use Test;
 use Tui::Node;
 use Tui::HTML::TagSet;
-use CSS::Declarations;
-use PDF::Lite;
+use CSS::Properties;
+use PDF::Content::XObject;
 use PDF::Style::Viewport;
 
-my $bg-image = PDF::Content::Image.open("t/images/semitransparent.gif");
+my PDF::Content::XObject $bg-image .= open("t/images/semitransparent.gif");
 my $style = "size: a5; margin-left:3pt; background-image: url($bg-image); background-color: blue; opacity: .3; border: 1pt solid red";
 
-my $tagset = Tui::HTML::TagSet.new;
+my Tui::HTML::TagSet $tagset .= new;
 my $declarations = $tagset.declarations<body>;
-my $css = CSS::Declarations.new: :$declarations, :$style;
-my $vp = PDF::Style::Viewport.new: :$css;
+my CSS::Properties $css .= new: :$declarations, :$style;
+my PDF::Style::Viewport $vp .= new: :$css;
 my Tui::Node::Root $root = Tui::Node.new: :element($vp);
 
 is $root.css.display, 'block', "css.display";

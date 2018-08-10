@@ -3,11 +3,11 @@ use v6;
 class Tui::HTML::TagSet {
     use CSS::Module;
     use CSS::Module::CSS3;
-    use CSS::Declarations:ver(v0.1.2..*);
+    use CSS::Properties:ver(v0.1.2..*);
 
     has CSS::Module $module = CSS::Module::CSS3.module;
     has Array %.declarations;
-    has CSS::Declarations %!css;
+    has CSS::Properties %!css;
 
     submethod TWEAK {
         # rough cut. just loads simple selections on elements
@@ -33,6 +33,6 @@ class Tui::HTML::TagSet {
 
     method elem-style(Str $_) {
         my $declarations =  %!declarations{.lc} // [];
-        %!css{.lc} //= CSS::Declarations.new: :$declarations;
+        %!css{.lc} //= CSS::Properties.new: :$declarations;
     }
 }

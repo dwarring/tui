@@ -4,7 +4,7 @@ use PDF::Style::Viewport;
 use PDF::Lite;
 use XML;
 use HTML::Parser::XML;
-use CSS::Declarations;
+use CSS::Properties;
 use Tui::HTML::TagSet;
 
 my Tui::HTML::TagSet $tag-style .= new;
@@ -16,10 +16,10 @@ my $page-height;
 
 diag "loading html";
 my $html = 't/html/basic-p-tag.html'.IO.slurp;
-my $parser = HTML::Parser::XML.new;
-my $vp = PDF::Style::Viewport.new;
-my $pdf = PDF::Lite.new;
-my $page = $pdf.add-page;
+my HTML::Parser::XML $parser .= new;
+my PDF::Style::Viewport $vp .= new;
+my PDF::Lite $pdf .= new;
+my PDF::Lite::Page $page = $pdf.add-page;
 diag "loaded html";
 diag :$html.perl;
 diag "parsing...";
@@ -51,7 +51,7 @@ for $body.nodes.list {
     }
 
     when XML::Element {
-        my CSS::Declarations $css = $tag-style.elem-style(.name).clone;
+        my CSS::Properties $css = $tag-style.elem-style(.name).clone;
 
         if my $style = .<style> {
             diag "style: $style";
